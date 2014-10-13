@@ -1,0 +1,53 @@
+<head>
+  <meta charset="utf-8">
+  <title>Firefox Regression Range Link Maker</title>
+
+  <style type="text/css">
+  body {
+    font-family: sans-serif;
+  }
+  strong {
+    font-weight: bold;
+    font-style: italic;
+    font-family: serif;
+  }
+  #err {
+    color: red;
+  }
+  </style>
+
+<body>
+  <h1>Firefox Regression Range Link Maker</h1>
+
+  <form id="theForm" action="#" method="GET" onsubmit="generateLink();">
+  <table>
+    <tr>
+      <td><label for="channel">Channel:</label>
+      <td><select id="channel">
+        <option value="mozilla-central" selected>nightly
+        <option value="mozilla-central-debug">nightly debug
+        <option value="mozilla-aurora">aurora
+        <option value="mozilla-aurora-debug">aurora debug
+      </select>
+    <tr id="good">
+      <td><label for="lastGood">Last-good buildid:</label>
+      <td><input id="lastGood" size="16">
+      <td><a class="builddir"></a>
+      <td><a class="revision"></a>
+    <tr id="bad">
+      <td><label for="firstBad">First-bad buildid:</label>
+      <td><input id="firstBad" size="16">
+      <td><a class="builddir"></a>
+      <td><a class="revision"></a>
+    <tr>
+      <td colspan="2"><input type="submit" id="findRange" value="Generate Link">
+  </table>
+  </form>
+
+  <p id="err"></p>
+
+  <p><a href="#" id="theLink"></a>
+
+  <p>NOTE: this tool uses ES6 features and so is likely to only work in Firefox until Chrome implements at least `let` and `for...of`.
+
+  <script src="regression-range.js" type="application/x-javascript;version=1.8"></script>
