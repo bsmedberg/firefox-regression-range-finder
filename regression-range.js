@@ -50,7 +50,7 @@ function splitBuildID(buildid) {
 }
 
 let kTxtFinder = /^firefox.*win32.txt$/;
-let kRevFinder = /https:\/\/hg\.mozilla.*([0-9a-f]{12})$/m;
+let kRevFinder = /https:\/\/hg\.mozilla.*\/([0-9a-f]{12}|[0-9a-f]{40})$/m;
 function findRevForBuild(buildid, channel, row) {
   let b = splitBuildID(buildid);
   let url = "http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/" + b.y + "/" + b.m + "/" + [b.y, b.m, b.d, b.h, b.min, b.sec, channel].join("-") + "/";
